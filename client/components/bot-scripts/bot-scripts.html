@@ -1,0 +1,63 @@
+<div id="scripts-container" ng-class="{'open': $ctrl.scriptsAreDisplayed, 'closed': $ctrl.scriptsAreDisplayed === false}">
+  <div id="scripts">
+    
+    <div class="tabs">
+      <div class="tab" ng-class="{'selected':$ctrl.selectedTab == 'bots'}" ng-click="$ctrl.selectTab('bots')">Bots</div>
+      <div class="tab" ng-class="{'selected':$ctrl.selectedTab == 'scripts'}" ng-click="$ctrl.selectTab('scripts')">Scripts</div>
+    </div>
+
+    <div class="tab-content" ng-show="$ctrl.selectedTab == 'bots'">
+      <div class="flex-row vertical-bottom bot-columns">
+        <div class="flex-cell find-on-map"></div>
+        <div class="flex-cell">Bot name</div>
+        <div class="flex-cell">Type</div>
+        <div class="flex-cell">Battery</div>
+        <div class="flex-cell">Status</div>
+        <div class="flex-cell script-action"></div>
+      </div>
+
+      <div class="relative" ng-repeat="bot in $ctrl.bots">
+        <div class="flex-row vertical-center bot-row">
+          <div class="flex-cell bot-row-cell find-on-map" ng-click="$ctrl.findBotOnMap(bot)">
+            [m]
+          </div>
+          <div class="flex-cell bot-row-cell">
+            <span ng-show="bot.name">{{ bot.name }}</span>
+            <span ng-hide="bot.name">Bot id: {{ bot.guid }}</span>
+          </div>
+          <div class="flex-cell bot-row-cell">
+            {{ $ctrl.getDisplayType(bot.type) }}
+          </div>
+          <div class="flex-cell bot-row-cell">
+            100%
+          </div>
+          <div class="flex-cell bot-row-cell">
+            <span ng-show="bot.guid == $ctrl.selectedBot.guid && !bot.status">Manual control</span>
+            <span ng-show="bot.guid != $ctrl.selectedBot.guid && !bot.status">Idle</span>
+          </div>
+          <div class="flex-cell bot-row-cell script-action">
+            <button class="sm" ng-click="$ctrl.toggleStartScriptDialog(bot)" ng-hide="bot.startScriptDialogIsDisplayed">Start a script</button>
+          </div>
+        </div>
+
+        <div ng-show="bot.startScriptDialogIsDisplayed" class="start-script-slide-control">
+          Start script
+
+          <button class="sm">Start</button>
+          <button class="sm cancel" ng-click="$ctrl.toggleStartScriptDialog(bot)">Cancel</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="tab-content" ng-show="$ctrl.selectedTab == 'scripts'">
+    </div>
+
+  </div>
+  <div id="scripts-toggle" ng-click="$ctrl.toggleScriptsDisplay()">
+    <span ng-show="$ctrl.scriptsAreDisplayed">&raquo;</span>
+    <span ng-hide="$ctrl.scriptsAreDisplayed">&laquo;</span>
+  </div>
+</div>
+

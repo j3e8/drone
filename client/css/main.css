@@ -1,0 +1,126 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata|Exo:400,600,300);
+
+body {
+  font-family: 'Exo', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #eee;
+}
+
+section,
+div {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  font-family: 'Exo', sans-serif;
+  font-weight: 600;
+  color: #eee;
+}
+h4, h5, h6 {
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+  color: #eee;
+}
+
+button,
+input[type=button],
+input[type=submit] {
+  outline: none !important;
+  border: none;
+  padding: 8px;
+  background-color: #52cca9;
+  color: #373638;
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button.sm,
+input[type=button].sm,
+input[type=submit].sm {
+  padding: 5px 6px;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+  width: 100%;
+  outline: none !important;
+  font-size: 15px;
+  padding: 8px;
+  font-weight: 300;
+  background-color: rgba(0,0,0,0.25);
+  border: 1px solid rgba(64,65,66,0.75);
+  color: #eee;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.breathe {
+  margin: 15px 0 5px 0;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.1);
+}
+:-moz-placeholder {
+  color: rgba(255,255,255,0.1);
+}
+::-moz-placeholder {
+  color: rgba(255,255,255,0.1);
+}
+:-ms-input-placeholder {  
+  color: rgba(255,255,255,0.1);
+}
+
+.shadow {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.sign-in-form {
+  position: fixed;
+  z-index: 11;
+  top: 20px;
+  width: 600px;
+  left: 50%;
+  margin-left: -300px;
+  height: auto;
+  max-height: calc(100% - 40px);
+  background-color: #333;
+  padding: 30px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.relative {
+  position: relative;
+}

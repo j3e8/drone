@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket</title>
+    <link type="text/css" rel="stylesheet" href="bundle.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="//localhost:3000/socket.io/socket.io.js"></script>
+    <script src="bundle.js"></script>
+  </head>
+  <body ng-app="Drone" ng-controller="MapPage">
+    <header>Hi {{ username }}</header>
+    <div id="map"></div>
+
+
+    <div id="chat"></div>
+
+    <div id="output-container" ng-class="{'open': outputIsDisplayed, 'closed': outputIsDisplayed === false}">
+      <div id="output"></div>
+      <div id="output-toggle" ng-click="toggleOutputDisplay()">
+        <span ng-show="outputIsDisplayed">&laquo;</span>
+        <span ng-hide="outputIsDisplayed">&raquo;</span>
+      </div>
+    </div>
+
+    <bot-scripts bots="user.bots" selected-bot="getSelectedBot()" on-bot-switch="selectBot"></bot-scripts>
+
+    <div class="shadow" ng-show="signUpIsDisplayed"></div>
+    <div class="sign-in-form" ng-show="signUpIsDisplayed">
+      <h2>Sign up</h2>
+      <div class="breathe">
+        <label>Username</label>
+        <input type="text" placeholder="username" ng-model="username" />
+      </div>
+      <div class="breathe">
+        <label>Password</label>
+        <input type="password" placeholder="password" ng-model="password" />
+      </div>
+      <div class="breathe text-right">
+        <button ng-click="signUp()">Sign up</button>
+        <br/>
+        <span class="clickable" ng-click="showSignIn()">Already have an account?</span>
+      </div>
+    </div>
+
+    <div class="shadow" ng-show="signInIsDisplayed"></div>
+    <div class="sign-in-form" ng-show="signInIsDisplayed">
+      <h2>Sign in</h2>
+      <div class="breathe">
+        <label>Username</label>
+        <input type="text" placeholder="username" ng-model="username" />
+      </div>
+      <div class="breathe">
+        <label>Password</label>
+        <input type="password" placeholder="password" ng-model="password" />
+      </div>
+      <div class="breathe text-right">
+        <button ng-click="signIn()">Sign in</button>
+        <br/>
+        <span class="clickable" ng-click="showSignUp()">Create account</span>
+      </div>
+    </div>
+
+    <div id="fps" style="position: fixed; bottom: 0; right: 0; width: auto; height: auto; color: #fff; z-index: 1000;"></div>
+  </body>
+</html>
