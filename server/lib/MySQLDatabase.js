@@ -1,11 +1,8 @@
 var mysql = require('mysql');
 
-var mysql_con = mysql.createConnection({
-  host: "localhost",
-  user: "web",
-  password: "Tortuga01",
-  database: "drone"
-});
+var mysql_creds = require('../../drone-db.json');
+var connection_config = Object.assign({ database: "drone" }, mysql_creds);
+var mysql_con = mysql.createConnection(connection_config);
 
 mysql_con.connect(function(err) {
   if (err) {
